@@ -18,12 +18,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    header/game.cpp \
     source/main.cpp \
     source/mainwindow.cpp
 
 HEADERS += \
-    header/game.h \
     header/mainwindow.h
 
 FORMS += \
@@ -39,3 +37,4 @@ RESOURCES += \
 
 DISTFILES += \
     other_file/gameboard.jpg
+    other_gile/cover.ipg
