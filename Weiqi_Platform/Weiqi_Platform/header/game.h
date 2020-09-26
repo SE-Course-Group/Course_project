@@ -15,9 +15,9 @@ using namespace std;
 class Game
 {
 private:
-    int board[EDGES][EDGES]; //取值为0、-1、1，0表示未落子，1表示先手落子，-1表示后手落子
-    vector<vector<int,int>> first_record; //先手记录,格式为[[row,col],....,[row,col]]
-    vector<vector<int,int>> second_record; //后手记录,格式为[[row,col],....,[row,col]]
+    int board[EDGES][EDGES]; //取值为0、-1、1,2;0表示未落子，1表示先手落子，-1表示后手落子
+    int visited[EDGES][EDGES]; //用于记录是否有气，如果有，则为1，没有为-1，未访问过为0
+
 public:
     Game();
 
@@ -27,8 +27,20 @@ public:
     bool move(int player,int row,int col);
     //落子[row,col]处，棋手未player(取值为-1/1)
 
-    bool judge_end(int& victor);
-    //判断是否结束，若结束通过victor返回获胜者信息
+    bool check_qi_unrecord(int row,int col);
+    //检测落子处[row,col]是否有气，使用不记录的方式
+
+    bool check_qi(int row,int col);
+    //判断[row,col]是否有气，使用记录的方式，并且在updata_board中调用
+
+    void update_board();
+    // 更新整个棋盘，把没有气的子提走
+
+    int judge_victor();
+    //在双方都确认结束的情况下，判断获胜者
+
+    bool search(int color,int row,int col);
+    //搜索[row,col]是否能搜索到color
 
 };
 
