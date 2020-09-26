@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/jpg">
         <file>other_file/gameboard.jpg</file>
+        <file>other_file/cover.jpg</file>
     </qresource>
 </RCC>
