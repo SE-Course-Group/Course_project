@@ -19,6 +19,8 @@ public:
 private slots:
     void on_playButton_clicked();
 
+    void on_helpButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Dialog *dialog;

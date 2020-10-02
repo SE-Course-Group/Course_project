@@ -19,17 +19,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dialog.cpp \
+    form.cpp \
     header/game.cpp \
     source/main.cpp \
     source/mainwindow.cpp
 
 HEADERS += \
     dialog.h \
+    form.h \
     header/game.h \
     header/mainwindow.h
 
 FORMS += \
     dialog.ui \
+    form.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -38,8 +41,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    other_file/helppic.qrc \
     weiqi_resource.qrc
 
 DISTFILES += \
+    other_file/cover.jpg \
+    other_file/timg.jpg
     other_file/gameboard.jpg
-    other_gile/cover.ipg
+    other_file/timg.jpg

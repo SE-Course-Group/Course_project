@@ -2,5 +2,10 @@
     <qresource prefix="/jpg">
         <file>other_file/gameboard.jpg</file>
         <file>other_file/cover.jpg</file>
+        <file>other_file/timg.jpg</file>
+        <file>other_file/yixing.jpg</file>
+        <file>other_file/qi.jpg</file>
+        <file>other_file/shiwei.jpg</file>
+        <file>other_file/wei.jpg</file>
     </qresource>
 </RCC>
