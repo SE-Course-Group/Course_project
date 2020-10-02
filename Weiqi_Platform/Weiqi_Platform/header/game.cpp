@@ -25,7 +25,7 @@ bool Game::move(int player,int row,int col)
     //该子无气的情况：
     for(int i=0;i<EDGES;i++)
         for(int j=0;j<EDGES;j++)
-            visited[0][0]=0;
+            visited[i][j]=0;
     int remove_player=(player==1)? -1:1; //待删除棋子颜色与落子相反
     stack<vector<int>> remove;//记录要提取的落子
     for(int i=0;i<EDGES;i++)
@@ -137,7 +137,5 @@ bool Game::search(int color,int row,int col)
     }
     return false;
 }
-
-
 
 

@@ -86,6 +86,7 @@ void Dialog::mousePressEvent(QMouseEvent *event)
     int row,col;
     if(!get_chess_location(col,row,newX,newY))return;
     if(game->move(player_color,row,col)){
+        game->update_board();
         if(player_color==1)player_color=-1;
         else player_color=1;
         update();
