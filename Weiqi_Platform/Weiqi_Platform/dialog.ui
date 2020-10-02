@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/jpg/other_file/gameboard.jpg);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
