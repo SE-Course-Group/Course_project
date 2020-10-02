@@ -50,7 +50,7 @@ void Dialog::paintEvent(QPaintEvent *)
   if(chessX != -1 && chessY != -1)
   {
       paint->setBrush(QBrush(Qt::black,Qt::SolidPattern));//毛刷：颜色，实图案
-      paint->drawEllipse(chessX-15,chessY-15,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
+      paint->drawEllipse(chessX*WIDTH+5,chessY*WIDTH+5,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
   }
 }
 
@@ -62,8 +62,8 @@ void Dialog::mousePressEvent(QMouseEvent *event)
 
     if( newX >= x && newY <= x + 8*WIDTH && newY >= y && newY <= y+8*WIDTH)
     {
-        chessX = newX;
-        chessY = newY;
+        chessX = newX/WIDTH+0.5;
+        chessY = newY/WIDTH+0.5;
     }
 
     update();
