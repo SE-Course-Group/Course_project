@@ -13,7 +13,7 @@ Game::Game()
 
 bool Game::check_location(int row,int col)
 {
-    return board[row][col];//仅检查是否可下
+    return !board[row][col];//仅检查是否可下
 }
 
 bool Game::move(int player,int row,int col)
@@ -75,8 +75,7 @@ bool Game::check_qi(int row,int col)
         }
     for(auto item:direction){
         // 旁边的棋子颜色一致且有气
-        if((item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES&&!board[item[0]][item[1]])&&//在棋盘上
-                board[item[0]][item[1]]==board[row][col]&&//等色
+        if((item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES)&&board[item[0]][item[1]]==board[row][col]&&//等色
                 check_qi(item[0],item[1])){
             visited[row][col]=1;
             return true;
@@ -127,6 +126,7 @@ int Game::judge_victor()
 
 bool Game::search(int color,int row,int col)
 {
+    // 搜索该空子与黑子还是白子相连接
     // [row,col]一定在棋盘上且为空
     vector<vector<int>> direction{{row-1,col},{row+1,col},{row,col+1},{row,col-1}};
     for(auto item:direction){
@@ -137,3 +137,7 @@ bool Game::search(int color,int row,int col)
     }
     return false;
 }
+
+
+
+

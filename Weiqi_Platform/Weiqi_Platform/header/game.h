@@ -7,6 +7,9 @@
 成员函数：
 */
 #include<vector>
+#include<stack>
+#include<iostream>
+#include<iomanip>
 using namespace std;
 
 #define EDGES 9
@@ -23,6 +26,17 @@ public:
 
     bool check_location(int row,int col);
     //检测是否可以落子，可以返回true,否则返回false
+    int& get_situation(int row,int col){
+        return board[row][col];
+    }
+
+    void print(){
+        for(int i=0;i<EDGES;i++){
+            for(int j=0;j<EDGES;j++)
+                cout << setw(3) << board[i][j];
+            cout << endl;
+        }
+    }
 
     bool move(int player,int row,int col);
     //落子[row,col]处，棋手未player(取值为-1/1)
@@ -43,5 +57,4 @@ public:
     //搜索[row,col]是否能搜索到color
 
 };
-
-#endif // GAME_H
+#endif
