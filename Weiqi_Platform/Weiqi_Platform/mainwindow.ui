@@ -27,7 +27,7 @@
      <string notr="true">border-image: url(:/jpg/other_file/cover.jpg);</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="playButton">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -40,7 +40,7 @@
      <string>Play</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="setButton">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -53,7 +53,7 @@
      <string>Sets</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -80,5 +80,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>exitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>686</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
