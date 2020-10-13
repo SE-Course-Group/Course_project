@@ -92,3 +92,4 @@ void Dialog::mousePressEvent(QMouseEvent *event)
         update();
     }
 }
+
