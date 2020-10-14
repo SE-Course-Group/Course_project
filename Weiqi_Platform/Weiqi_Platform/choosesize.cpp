@@ -3,7 +3,7 @@
 #include "dialog.h"
 #include "mainwindow.h"
 
-int globalSize;            //将Size声明为一个全局变量，用于窗体间传值
+int globalSize=8;
 
 choosesize::choosesize(QWidget *parent) :
     QDialog(parent),
@@ -19,26 +19,27 @@ choosesize::~choosesize()
 
 void choosesize::on_play9Button_clicked()
 {
+    globalSize=8;                  //设置全局变量，传递参数
     Dialog *dialog = new Dialog;
     this->close();
     dialog->show();
-    globalSize=9;
+
 }
 
 void choosesize::on_play13Button_clicked()
 {
+    globalSize=12;
     Dialog *dialog = new Dialog;
     this->close();
     dialog->show();
-    globalSize=19;
 }
 
 void choosesize::on_play19Button_clicked()
 {
+    globalSize=18;
     Dialog *dialog = new Dialog;
     this->close();
     dialog->show();
-    globalSize=19;
 }
 
 void choosesize::on_back2Button_clicked()

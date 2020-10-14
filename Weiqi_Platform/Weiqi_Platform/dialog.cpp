@@ -56,11 +56,11 @@ void Dialog::print_chess()
         for(int j=0;j<EDGES;j++){
             if(game->get_situation(i,j)==1){
              paint->setBrush(QBrush(Qt::black,Qt::SolidPattern));//毛刷：颜色，实图案
-             paint->drawEllipse(j*WIDTH+5,i*WIDTH+5,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
+             paint->drawEllipse(y+j*WIDTH-WIDTH/4,x+i*WIDTH-WIDTH/4,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
              }
             else if(game->get_situation(i,j)==-1){
                 paint->setBrush(QBrush(Qt::white,Qt::SolidPattern));//毛刷：颜色，实图案
-                paint->drawEllipse(j*WIDTH+5,i*WIDTH+5,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
+                paint->drawEllipse(y+j*WIDTH-WIDTH/4,x+i*WIDTH-WIDTH/4,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
             }
         }
 }
