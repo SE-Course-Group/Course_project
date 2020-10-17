@@ -12,6 +12,14 @@ Dialog::Dialog(int edges,QWidget *parent) :
 {
     ui->setupUi(this);
     game=new Game(edges);
+    move_sound=new QMediaPlayer();
+    move_sound->setMedia(QUrl("qrc:/mp3/other_file/move_chess.mp3"));
+    wait_move_sound=new QMediaPlaylist();
+    wait_move_sound->addMedia(QUrl("qrc:/mp3/other_file/wait_move.mp3"));
+    wait_move_sound->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop); //循环播放
+    background_sound=new QMediaPlayer();
+    background_sound->setPlaylist(wait_move_sound);
+    background_sound->play();
     player_color=1;
     chessX = -1;
     chessY = -1;
@@ -86,6 +94,7 @@ void Dialog::mousePressEvent(QMouseEvent *event)
     int row,col;
     if(!get_chess_location(col,row,newX,newY))return;
     if(game->move(player_color,row,col)){
+        move_sound->play(); //落子成功，放一遍声音
         game->update_board();
         if(player_color==1)player_color=-1;
         else player_color=1;

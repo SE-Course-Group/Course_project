@@ -8,4 +8,8 @@
         <file>other_file/shiwei.jpg</file>
         <file>other_file/wei.jpg</file>
     </qresource>
+    <qresource prefix="/mp3">
+        <file>other_file/move_chess.mp3</file>
+        <file>other_file/wait_move.mp3</file>
+    </qresource>
 </RCC>

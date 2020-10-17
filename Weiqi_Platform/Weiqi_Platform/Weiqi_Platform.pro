@@ -1,6 +1,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += multimedia
 
 CONFIG += c++11
 INCLUDEPATH += header
@@ -52,3 +53,4 @@ DISTFILES += \
     other_file/timg.jpg
     other_file/gameboard.jpg
     other_file/timg.jpg
+    other_file/move_chess.mp3
