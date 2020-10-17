@@ -20,7 +20,7 @@ choosesize::~choosesize()
 void choosesize::on_play9Button_clicked()
 {
     globalSize=8;                  //设置全局变量，传递参数
-    Dialog *dialog = new Dialog;
+    Dialog *dialog = new Dialog(9);
     this->close();
     dialog->show();
 
@@ -29,7 +29,7 @@ void choosesize::on_play9Button_clicked()
 void choosesize::on_play13Button_clicked()
 {
     globalSize=12;
-    Dialog *dialog = new Dialog;
+    Dialog *dialog = new Dialog(13);
     this->close();
     dialog->show();
 }
@@ -37,7 +37,7 @@ void choosesize::on_play13Button_clicked()
 void choosesize::on_play19Button_clicked()
 {
     globalSize=18;
-    Dialog *dialog = new Dialog;
+    Dialog *dialog = new Dialog(19);
     this->close();
     dialog->show();
 }

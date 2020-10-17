@@ -4,11 +4,21 @@
 using namespace std;
 
 //Game类实现文件
-Game::Game()
+Game::Game(int edges)
 {
-    for(int i=0;i<EDGES;i++)
+    EDGES=edges;
+    board=new int*[EDGES];
+    for(int i=0;i<EDGES;i++){
+        board[i]=new int[EDGES];
         for(int j=0;j<EDGES;j++)
             board[i][j]=0;
+    }
+    visited=new int*[EDGES];
+    for(int i=0;i<EDGES;i++){
+        visited[i]=new int[EDGES];
+        for(int j=0;j<EDGES;j++)
+            visited[i][j]=0;
+    }
 }
 
 bool Game::check_location(int row,int col)
@@ -64,7 +74,8 @@ bool Game::check_qi_unrecord(int row,int col){
 
 bool Game::check_qi(int row,int col)
 {
-    if(visited[row][col])return visited[row][col]==1; //1返回true，-1返回false
+    if(visited[row][col]==1)return true;
+    if(visited[row][col]==-1)return false;
     vector<vector<int>> direction{{row-1,col},{row+1,col},{row,col+1},{row,col-1}};
 
     //检测四周是否有空子
@@ -75,10 +86,15 @@ bool Game::check_qi(int row,int col)
         }
     for(auto item:direction){
         // 旁边的棋子颜色一致且有气
-        if((item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES)&&board[item[0]][item[1]]==board[row][col]&&//等色
-                check_qi(item[0],item[1])){
-            visited[row][col]=1;
-            return true;
+        if((item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES)
+           &&board[item[0]][item[1]]==board[row][col]
+           &&visited[item[0]][item[1]]!=-2){//表示未搜索过
+            visited[item[0]][item[1]]=-2;  //表示已经搜索过
+            if(check_qi(item[0],item[1])){
+                visited[row][col]=1;
+                return true;
+            }
+            visited[item[0]][item[1]]=0;
         }
     }
     visited[row][col]=-1;

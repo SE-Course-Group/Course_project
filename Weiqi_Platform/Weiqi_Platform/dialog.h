@@ -16,7 +16,7 @@ class Dialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = nullptr);
+    explicit Dialog(int edges,QWidget *parent = nullptr);
     ~Dialog();
     int SIZE=globalSize;           //SIZE为格子个数
     int WIDTH=65*8/globalSize;         //WIDTH为每个格子的长宽

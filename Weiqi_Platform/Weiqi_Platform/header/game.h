@@ -12,18 +12,21 @@
 #include<iomanip>
 using namespace std;
 
-#define EDGES 9
-//围棋路数定为9
-
 class Game
 {
 private:
-    int board[EDGES][EDGES]; //取值为0、-1、1,2;0表示未落子，1表示先手落子，-1表示后手落子
-    int visited[EDGES][EDGES]; //用于记录是否有气，如果有，则为1，没有为-1，未访问过为0
+    int **board; //取值为0、-1、1,2;0表示未落子，1表示先手落子，-1表示后手落子
+    int **visited; //用于记录是否有气，如果有，则为1，没有为-1，未访问过为0
 
 public:
-    Game();
-
+    int EDGES;
+    Game(int edges);
+    ~Game(){
+        for(int i=0;i<EDGES;i++)delete [] board[i];
+        delete [] board;
+        for(int i=0;i<EDGES;i++)delete [] visited[i];
+        delete [] visited;
+    }
     bool check_location(int row,int col);
     //检测是否可以落子，可以返回true,否则返回false
     int& get_situation(int row,int col){

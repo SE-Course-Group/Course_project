@@ -6,12 +6,12 @@
 #include "mainwindow.h"
 #include "game.h"
 
-Dialog::Dialog(QWidget *parent) :
+Dialog::Dialog(int edges,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    game=new Game;
+    game=new Game(edges);
     player_color=1;
     chessX = -1;
     chessY = -1;
@@ -26,7 +26,7 @@ bool Dialog::get_chess_location(int &row, int &col, int newX, int newY)
 {
     row = newX/WIDTH+0.5;
     col = newY/WIDTH+0.5;
-    if(row<0||row>=EDGES||col<0||col>=EDGES)return false;
+    if(row<0||row>=game->EDGES||col<0||col>=game->EDGES)return false;
     return true;
 }
 
@@ -52,8 +52,8 @@ void Dialog::print_grid()
 
 void Dialog::print_chess()
 {
-    for(int i=0;i<EDGES;i++)
-        for(int j=0;j<EDGES;j++){
+    for(int i=0;i<game->EDGES;i++)
+        for(int j=0;j<game->EDGES;j++){
             if(game->get_situation(i,j)==1){
              paint->setBrush(QBrush(Qt::black,Qt::SolidPattern));//毛刷：颜色，实图案
              paint->drawEllipse(y+j*WIDTH-WIDTH/4,x+i*WIDTH-WIDTH/4,WIDTH/2,WIDTH/2);//画椭圆：中心点X,Y,宽度，高度
