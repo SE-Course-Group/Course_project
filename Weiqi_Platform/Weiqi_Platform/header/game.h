@@ -44,9 +44,6 @@ public:
     bool move(int player,int row,int col);
     //落子[row,col]处，棋手未player(取值为-1/1)
 
-    bool check_qi_unrecord(int row,int col);
-    //检测落子处[row,col]是否有气，使用不记录的方式
-
     bool check_qi(int row,int col);
     //判断[row,col]是否有气，使用记录的方式，并且在updata_board中调用
 

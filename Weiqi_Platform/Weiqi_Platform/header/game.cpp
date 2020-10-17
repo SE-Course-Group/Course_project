@@ -30,7 +30,11 @@ bool Game::move(int player,int row,int col)
 {
     if(!check_location(row,col))return false;
     board[row][col]=player; //落子
-    if(check_qi_unrecord(row,col))//表示该子有气
+    for(int i=0;i<EDGES;i++)
+        for(int j=0;j<EDGES;j++)
+            visited[i][j]=0;
+    visited[row][col]=-2;
+    if(check_qi(row,col))//表示该子有气
         return true;
     //该子无气的情况：
     for(int i=0;i<EDGES;i++)
@@ -51,25 +55,6 @@ bool Game::move(int player,int row,int col)
         board[temp[0]][temp[1]]=0; //提取该子，记为0
     }
     return true;
-}
-
-bool Game::check_qi_unrecord(int row,int col){
-    //row,col为落子处
-    vector<vector<int>> direction{{row-1,col},{row+1,col},{row,col+1},{row,col-1}};
-    //检测四周是否有空子
-    for(auto item:direction)
-        if(item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES&&!board[item[0]][item[1]]){
-            return true;
-        }
-    for(auto item:direction){
-        // 旁边的棋子颜色一致且有气
-        if((item[0]>=0&&item[0]<EDGES&&item[1]>=0&&item[1]<EDGES&&!board[item[0]][item[1]])&&//在棋盘上
-                board[item[0]][item[1]]==board[row][col]&&//等色
-                check_qi_unrecord(item[0],item[1])){
-            return true;
-        }
-    }
-    return false;
 }
 
 bool Game::check_qi(int row,int col)
