@@ -2,6 +2,8 @@
 #define CHOOSESIZE_H
 
 #include <QDialog>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 namespace Ui {
 class choosesize;
@@ -27,6 +29,9 @@ private slots:
 
 private:
     Ui::choosesize *ui;
+    QMediaPlaylist *background_playlist; //背景音效播放列表
+    QMediaPlayer *background_player; //背景音效播放器
+    QMediaPlayer *transition_player; //转场音效
 };
 
 #endif // CHOOSESIZE_H

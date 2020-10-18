@@ -28,6 +28,7 @@ public:
     QMediaPlayer* move_sound; //指向下棋的音频
     QMediaPlaylist* wait_move_sound; //等待下棋的音乐列表
     QMediaPlayer* background_sound; //背景音乐
+    QMediaPlayer *transition_player; //转场音效
     Game* game;
     bool get_chess_location(int& row,int& col,int newX,int newY);
     void print_grid();//画棋盘线条

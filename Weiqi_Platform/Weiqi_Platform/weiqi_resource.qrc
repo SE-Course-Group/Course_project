@@ -11,5 +11,9 @@
     <qresource prefix="/mp3">
         <file>other_file/move_chess.mp3</file>
         <file>other_file/wait_move.mp3</file>
+        <file>other_file/home_background.mp3</file>
+        <file>other_file/count_down.mp3</file>
+        <file>other_file/victory.mp3</file>
+        <file>other_file/transition.mp3</file>
     </qresource>
 </RCC>

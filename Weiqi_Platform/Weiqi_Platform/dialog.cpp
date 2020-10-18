@@ -19,6 +19,8 @@ Dialog::Dialog(int edges,QWidget *parent) :
     wait_move_sound->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop); //循环播放
     background_sound=new QMediaPlayer();
     background_sound->setPlaylist(wait_move_sound);
+    transition_player=new QMediaPlayer();
+    transition_player->setMedia(QUrl("qrc:/mp3/other_file/transition.mp3"));
     background_sound->play();
     player_color=1;
     chessX = -1;
@@ -76,6 +78,8 @@ void Dialog::print_chess()
 void Dialog::on_backButton_clicked()
 {
     MainWindow *fater = new MainWindow();
+    transition_player->play();
+    background_sound->stop();
     this->close();
     fater->show();
 }
