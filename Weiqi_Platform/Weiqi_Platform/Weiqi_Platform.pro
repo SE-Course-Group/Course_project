@@ -23,6 +23,7 @@ SOURCES += \
     dialog.cpp \
     form.cpp \
     header/game.cpp \
+    setting.cpp \
     source/main.cpp \
     source/mainwindow.cpp
 
@@ -31,13 +32,15 @@ HEADERS += \
     dialog.h \
     form.h \
     header/game.h \
-    header/mainwindow.h
+    header/mainwindow.h \
+    setting.h
 
 FORMS += \
     choosesize.ui \
     dialog.ui \
     form.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    setting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

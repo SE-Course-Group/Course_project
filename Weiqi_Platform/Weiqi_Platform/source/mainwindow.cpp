@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "form.h"
 #include "choosesize.h"
+#include "setting.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -40,5 +41,9 @@ void MainWindow::on_helpButton_clicked()    //打开帮助界面
 }
 
 void MainWindow::on_settingButton_clicked(){
-    return;
+    setting *fater = new setting();
+    this->close();
+    fater->show();
 }
+
+

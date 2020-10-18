@@ -23,6 +23,8 @@ private slots:
     void on_helpButton_clicked();
     void on_settingButton_clicked();
 
+    void on_setButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Dialog *dialog;

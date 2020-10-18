@@ -40,7 +40,7 @@
      <string>Play</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="setButton">
+   <widget class="QPushButton" name="settingButton">
     <property name="geometry">
      <rect>
       <x>640</x>
